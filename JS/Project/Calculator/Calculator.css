@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+}
+.main {
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.m1 {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label {
+    font-size: 1.5em;
+    flex: 1;
+    text-align: left;
+}
+
+input {
+    flex: 2;
+    height: 40px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-left: 10px;
+}
+
+input:disabled {
+    background: #555;
+    color: #ccc;
+}
+
+button {
+    height: 50px;
+    width: 50px;
+    font-size: 1.5em;
+    margin: 5px;
+    border: none;
+    border-radius: 50%;
+    background: #444;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    background: #555;
+    transform: scale(1.1);
+}
+
+button:active {
+    background: #666;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

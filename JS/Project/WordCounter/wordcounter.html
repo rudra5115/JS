@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORD COUNTER</title>
+    <link rel="stylesheet" href="WC.css">
+    </head>
+<body>
+    <h1>WORD COUNTER</h1>
+    <div class="main">
+        <div class="main1">
+            <div class="m1">
+                <textarea id="inputText" cols="84" rows="15" placeholder="Enter Anything"></textarea>
+            </div>
+            <div class="m2">
+                <button onclick="toUppercase()">Uppercase</button>
+                <button onclick="toLowercase()">Lowercase</button>
+                <button onclick="clearText()">Clear</button>
+                <button onclick="copyText()">Copy</button>
+                <button onclick="removeExtraSpaces()">Remove Spaces</button>
+            </div>
+            <div class="m3">
+                <textarea id="previewText" cols="84" rows="15" placeholder="Preview" readonly></textarea>
+            </div>
+        </div>
+        <div class="main2">
+            <h2>Total Words</h2>
+            <div class="wc" id="wordCount">0</div>
+            <h2>Total Characters</h2>
+            <div class="cc" id="charCount">0</div>
+        </div>
+    </div>
+    <script>
+        function updateCounts() {
+            const inputText = document.getElementById('inputText').value;
+            const words = inputText.trim().split(/\s+/).filter(Boolean).length;
+            const characters = inputText.replace(/\s+/g, '').length;
+
+            document.getElementById('wordCount').textContent = words;
+            document.getElementById('charCount').textContent = characters;
+        }
+
+        function toUppercase() {
+            const inputText = document.getElementById('inputText').value;
+            const upperText = inputText.toUpperCase();
+            document.getElementById('previewText').value = upperText;
+            updateCounts();
+        }
+
+        function toLowercase() {
+            const inputText = document.getElementById('inputText').value;
+            const lowerText = inputText.toLowerCase();
+            document.getElementById('previewText').value = lowerText;
+            updateCounts();
+        }
+
+        function clearText() {
+            document.getElementById('inputText').value = '';
+            document.getElementById('previewText').value = '';
+            updateCounts();
+        }
+
+        function copyText() {
+            const previewText = document.getElementById('previewText');
+            previewText.select();
+            document.execCommand('copy');
+        }
+
+        function removeExtraSpaces() {
+            const inputText = document.getElementById('inputText').value;
+            const cleanedText = inputText.replace(/\s+/g, ' ').trim();
+            document.getElementById('previewText').value = cleanedText;
+            updateCounts();
+        }
+
+        document.getElementById('inputText').addEventListener('input', updateCounts);
+    </script>
+</body>
+</html>

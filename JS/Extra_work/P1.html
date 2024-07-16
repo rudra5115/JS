@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractive Calculator</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        margin: 0;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    .calculator {
+        background: #333;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+    }
+    
+    .display {
+        background: #222;
+        padding: 20px;
+        text-align: right;
+    }
+    
+    .display input {
+        width: 100%;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 2em;
+        text-align: right;
+    }
+    
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 20px;
+    }
+    
+    .button {
+        background: #444;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1.5em;
+        padding: 20px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    
+    .button:hover {
+        background: #555;
+    }
+    
+    .equal {
+        grid-column: span 2;
+        background: #ff9500;
+    }
+    
+    .equal:hover {
+        background: #ff8500;
+    }
+    
+    .zero {
+        grid-column: span 2;
+    }
+    
+</style>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="display" disabled>
+        </div>
+        <div class="buttons">
+            <button class="button" onclick="clearDisplay()">C</button>
+            <button class="button" onclick="deleteLast()">⌫</button>
+            <button class="button" onclick="appendOperator('/')">÷</button>
+            <button class="button" onclick="appendOperator('*')">×</button>
+            <button class="button" onclick="appendNumber(7)">7</button>
+            <button class="button" onclick="appendNumber(8)">8</button>
+            <button class="button" onclick="appendNumber(9)">9</button>
+            <button class="button" onclick="appendOperator('-')">−</button>
+            <button class="button" onclick="appendNumber(4)">4</button>
+            <button class="button" onclick="appendNumber(5)">5</button>
+            <button class="button" onclick="appendNumber(6)">6</button>
+            <button class="button" onclick="appendOperator('+')">+</button>
+            <button class="button" onclick="appendNumber(1)">1</button>
+            <button class="button" onclick="appendNumber(2)">2</button>
+            <button class="button" onclick="appendNumber(3)">3</button>
+            <button class="button equal" onclick="calculate()">=</button>
+            <button class="button zero" onclick="appendNumber(0)">0</button>
+            <button class="button" onclick="appendDot()">.</button>
+        </div>
+    </div>
+    <script>
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+        
+        function deleteLast() {
+            let display = document.getElementById('display').value;
+            document.getElementById('display').value = display.slice(0, -1);
+        }
+        
+        function appendNumber(number) {
+            document.getElementById('display').value += number;
+        }
+        
+        function appendOperator(operator) {
+            let display = document.getElementById('display').value;
+            if (display !== '' && !isNaN(display.slice(-1))) {
+                document.getElementById('display').value += operator;
+            }
+        }
+        
+        function appendDot() {
+            let display = document.getElementById('display').value;
+            if (display !== '' && !display.includes('.')) {
+                document.getElementById('display').value += '.';
+            }
+        }
+        
+        function calculate() {
+            let display = document.getElementById('display').value;
+            if (display !== '') {
+                document.getElementById('display').value = eval(display.replace('×', '*').replace('÷', '/'));
+            }
+        }        
+    </script>
+</body>
+
+</html>

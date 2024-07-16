@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Date</h1>
+    <script>
+        var a=prompt("can we go on date")
+        if(a=="yes"){
+            document.write("let's go")
+        var b=+prompt("where we can go 1)Lunch 2)Dinner 3)Movie 4)LongDrive")
+        switch (b) {
+            case 1:
+                document.write("let's go for lunch");
+                var c=prompt("what we will eat in lunch")
+                document.write("we will eat "+c+" in lunch")
+                break;
+              break;
+            case 2:
+              document.write("let's go for dinner");
+              var c=prompt("what we will eat in dinner")
+              document.write("we will eat "+c+" in dinner")
+              break;
+            case 3:
+              document.write("let's go for movie");
+              var c=prompt("which movie we will see 1)Horrer 2)Comady 3)Action")
+              document.write("we will watch"+c+" movie")
+              break;
+            case 4:
+              document.write("let's go for longdrive");
+              break;
+            default:
+              document.write("let's go to home");
+          }  
+        }
+        else{
+            document.write("ok no problem i will go with anotherone")
+        }
+    </script>
+</body>
+</html>
