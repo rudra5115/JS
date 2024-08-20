@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <link rel="stylesheet" href="cc.css">        
+</head>
+<body>
+    <div class="main" id="colorDisplay"></div>
+    <div class="btn">
+        <button onclick="prevColor()">&lt; Prev</button>
+        <button onclick="stopColor()">Stop</button>
+        <button onclick="nextColor()">Next &gt;</button>
+    </div>
+    <script>
+        const colors = ['#FF0000', '#800000', '#a52a2a', '#ffa500', '#00ff00', '#00ffff', '#800080', '#008080', '#ffc0cb', '#ffd700'];
+        let currentIndex = 0;
+        let intervalId;
+
+        const colorDisplay = document.getElementById('colorDisplay');
+
+        function updateColor() {
+            colorDisplay.style.backgroundColor = colors[currentIndex];
+        }
+
+        function nextColor() {
+            currentIndex = (currentIndex + 1) % colors.length;
+            updateColor();
+        }
+
+        function prevColor() {
+            currentIndex = (currentIndex - 1 + colors.length) % colors.length;
+            updateColor();
+        }
+
+        function startColorChange() {
+            if (!intervalId) {
+                intervalId = setInterval(nextColor, 1000);
+            }
+        }
+
+        function stopColor() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+
+        updateColor();
+        startColorChange();
+    </script>
+</body>
+</html>

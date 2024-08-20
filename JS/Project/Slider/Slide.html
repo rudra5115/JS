@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="Slide.css">
+</head>
+<body>
+    <div class="main" id="slider">
+        <img src="https://img.saurenergy.com/2017/06/IREDA-logo.jpg" class="active" alt="Image 1">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.ZznGlUsL_Dn35zPdSzSTvwHaHa&pid=Api&P=0&h=180" alt="Image 2">
+        <img src="https://tse3.mm.bing.net/th?id=OIP.5vsFXXiKMSEC2Eo1qG5gnAHaHa&pid=Api&P=0&h=180" alt="Image 3">
+    </div>
+    <div class="main1">
+        <button onclick="prevImage()" style="background-color: Red;">&lt; Prev</button>
+        <button onclick="nextImage()" style="background-color: Green;">Next &gt;</button>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.main img');
+        let intervalId;
+
+        function updateImageDisplay() {
+            const activeImage = document.querySelector('.main img.active');
+            if (activeImage) activeImage.classList.remove('active');
+            images[currentImageIndex].classList.add('active');
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateImageDisplay();
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateImageDisplay();
+        }
+
+        function startAutoSlide() {
+            intervalId = setInterval(nextImage, 2000); 
+        }
+
+        function stopAutoSlide() {
+            clearInterval(intervalId);
+        }
+
+        startAutoSlide();
+
+        document.querySelector('.main1').addEventListener('click', () => {
+            stopAutoSlide();
+            setTimeout(startAutoSlide, 5000); 
+        });
+
+        updateImageDisplay();
+    </script>
+</body>
+</html>

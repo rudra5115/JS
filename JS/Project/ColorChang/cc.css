@@ -1,0 +1,27 @@
+.main {
+    height: 400px;
+    width: 400px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.5s, color 0.5s;
+}
+.btn {
+    width: 400px;
+    height: 50px;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+.btn button {
+    height: 100%;
+    width: 120px;
+    font-size: 25px;
+}
