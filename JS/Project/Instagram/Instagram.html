@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Insta.css">
+</head>
+
+<body>
+    <div class="main">
+        <h1>Instagram</h1>
+        <div class="m1">
+            <div class="input-group">
+                <input type="text" id="email" placeholder=" ">
+                <label for="email" class="floating-label">Phone number, username, or email</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder=" ">
+                <label for="password" class="floating-label">Password</label>
+            </div>
+            <button>Log in</button><br><br>
+        </div>
+        <hr>
+        <h3>OR</h3>
+        <hr>
+        <div class="fb">
+            <div class="fb1"><i style="text-align: center; font-size: 35px; color: #055291;" class="fa-brands fa-facebook"></i></div>
+            <div class="fb2"><span>Log in with Facebook</span></div>
+        </div>
+        <p>Forgot password?</p>
+    </div>
+    <div class="main1">
+        <h2 style="text-align: center;">Don't have an account?<a href="#"
+                style="color: skyblue;text-decoration:none">Sign up</a></h2>
+    </div>
+    <script>
+        function handleFloatingLabel() {
+            const inputs = document.querySelectorAll('.input-group input');
+
+            inputs.forEach(input => {
+                const label = input.nextElementSibling;
+
+                input.addEventListener('focus', () => {
+                    label.classList.add('float');
+                });
+
+                input.addEventListener('blur', () => {
+                    if (input.value === '') {
+                        label.classList.remove('float');
+                    }
+                });
+
+                if (input.value !== '') {
+                    label.classList.add('float');
+                }
+            });
+        }
+
+        handleFloatingLabel();
+    </script>
+</body>
+
+</html>
