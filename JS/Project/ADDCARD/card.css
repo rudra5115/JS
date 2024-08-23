@@ -1,0 +1,359 @@
+body {
+    background-color: #212121;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: #0d1117;
+    justify-content: center;
+    border-radius: 5px;
+    gap: 7.5px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .value {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    color: white;
+    display: flex;
+    position: relative;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .value:not(:active):hover,
+  .value:focus {
+    background-color: #21262c;
+  }
+
+  .value:focus,
+  .value:active {
+    background-color: #1a1f24;
+    outline: none;
+  }
+
+  .value::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    width: 100%;
+    height: 3px;
+    background-color: #2f81f7;
+    border-radius: 5px;
+    opacity: 0;
+  }
+
+  .value:focus::before,
+  .value:active::before {
+    opacity: 1;
+  }
+
+  .value svg {
+    width: 15px;
+  }
+
+  /* buttons--------- */
+  /* From Uiverse.io by Saiyed-Tanvir */
+  .one {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    margin-left: 700px;
+    margin-top: 100px;
+  }
+
+  .pane {
+    outline: 2px solid #00ff6a;
+    box-shadow: 0 0 10px #00ff6a77, inset 0 0 10px #00ff6a77;
+    height: 1cm;
+    width: 4.5cm;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.7s ease;
+  }
+
+  .input {
+    display: none;
+  }
+
+  .label {
+    height: 1cm;
+    width: 1.5cm;
+    float: left;
+    font-weight: 600;
+    letter-spacing: -1px;
+    font-size: 14px;
+    padding: 0px;
+    position: relative;
+    z-index: 1;
+    color: #00ff6a;
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .selection {
+    display: none;
+    position: absolute;
+    height: 1cm;
+    width: calc(4.5cm / 3);
+    z-index: 0;
+    left: 0;
+    top: 0;
+    box-shadow: 0 0 10px #00ff6a77;
+    transition: .15s ease;
+  }
+
+  .label:has(input:checked) {
+    color: #212121;
+  }
+
+  .pane:has(.label:nth-child(1):hover) {
+    transform: rotateY(-30deg);
+  }
+
+  .pane:has(.label:nth-child(3):hover) {
+    transform: rotateY(35deg);
+  }
+
+  .label:has(input:checked)~.selection {
+    background-color: #00ff6a;
+    display: inline-block;
+  }
+
+  .label:nth-child(1):has(input:checked)~.selection {
+    transform: translateX(calc(4.5cm * 0/3));
+  }
+
+  .label:nth-child(2):has(input:checked)~.selection {
+    transform: translateX(calc(4.5cm * 1/3));
+  }
+
+  .label:nth-child(3):has(input:checked)~.selection {
+    transform: translateX(calc(4.5cm * 2/3));
+  }
+
+  /* card------------------------------------- */
+  /* From Uiverse.io by MuhammadHasann */
+  .card {
+    --bg-card: #27272a;
+    --primary: #6d28d9;
+    --primary-800: #4c1d95;
+    --primary-shadow: #2e1065;
+    --light: #d9d9d9;
+    --zinc-800: #18181b;
+    --bg-linear: linear-gradient(0deg, var(--primary) 50%, var(--light) 125%);
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    padding: 1rem;
+    width: 16rem;
+    background-color: var(--bg-card);
+
+    border-radius: 1rem;
+  }
+
+  .image_container {
+    overflow: hidden;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    height: 14rem;
+    background-color: var(--primary-800);
+
+    border-radius: 0.5rem;
+  }
+
+  .image_container .image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 3rem;
+    fill: var(--light);
+  }
+
+  .title {
+    overflow: clip;
+
+    width: 100%;
+
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--light);
+    text-transform: capitalize;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+  }
+  .title:hover{
+    color: #bca3e9;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .size {
+    font-size: 1rem;
+    color: var(--light);
+  }
+
+  .list-size {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    margin-top: 0.25rem;
+  }
+
+  .list-size .item-list {
+    list-style: none;
+  }
+
+  .list-size .item-list-button {
+    cursor: pointer;
+
+    padding: 0.5rem;
+    background-color: var(--zinc-800);
+
+    font-size: 0.75rem;
+    color: var(--light);
+
+    border: 2px solid var(--zinc-800);
+    border-radius: 0.25rem;
+
+    transition: all 0.3s ease-in-out;
+  }
+
+  .item-list-button:hover {
+    border: 2px solid var(--light);
+  }
+
+  .item-list-button:focus {
+    background-color: var(--primary);
+
+    border: 2px solid var(--primary-shadow);
+
+    box-shadow: inset 0px 1px 4px var(--primary-shadow);
+  }
+
+  .action {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--light);
+  }
+
+  .cart-button {
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+
+    padding: 0.5rem;
+    width: 100%;
+    background-image: var(--bg-linear);
+
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--light);
+    text-wrap: nowrap;
+
+    border: 2px solid hsla(262, 83%, 58%, 0.5);
+    border-radius: 0.5rem;
+    box-shadow: inset 0 0 0.25rem 1px var(--light);
+  }
+
+  .cart-button .cart-icon {
+    width: 1rem;
+  }
+
+  .maleproduct {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+
+  }
+
+  .femaleproduct {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 100px;
+
+  }
+
+  /* footer------- */
+  .footer {
+    background: #000;
+    padding: 30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .footer .row {
+    width: 100%;
+    margin: 1% 0%;
+    padding: 0.6% 0%;
+    color: gray;
+    font-size: 0.8em;
+  }
+
+  .footer .row a {
+    text-decoration: none;
+    color: gray;
+    transition: 0.5s;
+  }
+
+  .footer .row a:hover {
+    color: #fff;
+  }
+
+  .footer .row ul {
+    width: 100%;
+  }
+
+  .footer .row ul li {
+    display: inline-block;
+    margin: 0px 30px;
+  }
+
+  .footer .row a i {
+    font-size: 2em;
+    margin: 0% 1%;
+  }
+
+  @media (max-width:720px) {
+    .footer {
+      text-align: left;
+      padding: 5%;
+    }
+
+    .footer .row ul li {
+      display: block;
+      margin: 10px 0px;
+      text-align: left;
+    }
+
+    .footer .row a i {
+      margin: 0% 3%;
+    }
+  }
